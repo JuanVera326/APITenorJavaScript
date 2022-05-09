@@ -1,8 +1,10 @@
-const input = document.querySelector('#input-gif');
+const input = document.querySelector('#input');
 const container = document.querySelector('#container1');
+Sortable.create(container,{});
 
 input.addEventListener('keypress',function enter(params) {
     if (params.keyCode == "13") {
+        console.log("Enter!!");
         customGif(input);
     }
 });
@@ -22,6 +24,7 @@ function createGif(data) {
     container.textContent = "";
     data.results.map(gif => {
         const imgCard = document.createElement("img");
+        imgCard.classList = 'card';
         imgCard.src = gif.media[0].mediumgif.url;
         container.appendChild(imgCard);
     })
